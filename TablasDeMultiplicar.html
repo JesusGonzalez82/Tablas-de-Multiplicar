@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Actividad 2.4</title>
+        <link rel="stylesheet" href="styleTablas.css">
+    </head>
+    <body>
+        <h2>Tablas de Multiplicar</h2>
+        <label for="numero">Introduce el número del que desees saber su tabla de multiplicar: </label>
+        <input type="number" id="numero" placeholder="Ejemplo: 5" min="0">
+
+        <button onclick="multiplicar()">Mostrar tabla</button>
+
+        <div id="resultados"></div>
+
+
+        <script>
+            function multiplicar(){
+            let num = document.getElementById('numero').value;
+            let resultadosDiv = document.getElementById('resultados');
+            
+            if (!num || isNaN(num)){
+                resultadosDiv.innerHTML = '<p style="color:red;">Por favor introduce un numero válido.</p>'
+                return;
+            }
+
+            resultadosDiv.innerHTML = "";
+            num = parseInt(num);
+
+            for (let i = 0; i <= 10;  i++){
+               let mult = num * i;
+                let parrafo = document.createElement('p');
+                parrafo.textContent = `${num} x ${i} = ${mult}`;
+                resultadosDiv.appendChild(parrafo);
+            }
+        }
+        </script>
+    </body>
+</html>
